@@ -1,6 +1,6 @@
-# Permissions-in-Jetpack-Compose-with-Hilt
+### Permissions-in-Jetpack-Compose-with-Hilt
 A simple and scalable way to handle Android runtime permissions in Jetpack Compose, following Clean Architecture principles.
-# Features
+#### Features
 - Jetpack Compose compatible
 - Clean Architecture: domain, usecases, ui
 - Handles multiple permissions at once
@@ -8,8 +8,8 @@ A simple and scalable way to handle Android runtime permissions in Jetpack Compo
 - Detects permanent denial (never ask again)
 - Opens App Settings when required
 
-## Usage
-### 1. Define Permissions
+#### Usage
+###### 1. Define Permissions
 ```kotlin
 data class PermissionModel(
     val permission: String,
@@ -18,7 +18,7 @@ data class PermissionModel(
     val rationale: String
 )
 ```
-### 2. Filter required permissions
+###### 2. Filter required permissions
 ```kotlin
 // Returns only permissions valid for the current device SDK
 val requiredPermissions = getRequiredPermissionsUseCase()
@@ -31,12 +31,12 @@ val permissionLauncher = rememberLauncherForActivityResult(
     viewModel.onResult(activity, result)
 }
 ```
-### 4. Handle Result
+###### 4. Handle Result
 ```kotlin
 // Use case provides denied, permanentlyDenied, showRationale, allGranted
 val result = handlePermissionResultUseCase(permissions, resultMap) { shouldShowRationale(it) }
 ```
-### 5. Show Rationale Dialog
+###### 5. Show Rationale Dialog
 ```kotlin
 if (state.showRationale) {
     PermissionRationaleAlert(
@@ -47,7 +47,7 @@ if (state.showRationale) {
 }
 ```
 
-# Setup
-- Add ```kotlin Hilt``` dependencies in your project
-- Copy the ```kotlin domain``` and ```kotlin ui``` layers
+#### Setup
+- Add ```Hilt``` dependencies in your project
+- Copy the ```domain``` and ```ui``` layers
 - Use ```kotlin PermissionScreen()``` in your activity to handle permissions

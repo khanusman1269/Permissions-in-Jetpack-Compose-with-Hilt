@@ -50,4 +50,4 @@ if (state.showRationale) {
 #### Setup
 - Add ```Hilt``` dependencies in your project
 - Copy the ```domain``` and ```ui``` layers
-- Use ```kotlin PermissionScreen()``` in your activity to handle permissions
+- Use ```PermissionScreen()``` in your activity to handle permissions
